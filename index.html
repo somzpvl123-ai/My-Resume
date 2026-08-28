@@ -3,40 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - [Prangvalai Nantasaen]</title>
-    <!-- เรียกใช้ Tailwind CSS ผ่าน CDN -->
+    <title>Resume - Prangvalai Nantasaen</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="bg-slate-50 text-slate-800 font-sans leading-relaxed">
+    <!-- Typed.js for Text Animation -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
-    <!-- Header / Intro Section -->
-    <header class="bg-slate-900 text-white py-12 px-6 shadow-md">
-        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+    <style>
+        /* ลูกเล่นไล่เฉดสีข้อความขยับได้ (Gradient Animation) */
+        .animated-gradient-text {
+            background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #ec4899, #06b6d4);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 5s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* เอฟเฟกต์เรืองแสงเมื่อชี้ที่ชื่อ */
+        .glow-hover {
+            transition: all 0.3s ease;
+        }
+        .glow-hover:hover {
+            text-shadow: 0 0 20px rgba(139, 92, 246, 0.6), 0 0 30px rgba(59, 130, 246, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* ตกแต่งเคอร์เซอร์พิมพ์ดีด */
+        .typed-cursor {
+            color: #ec4899;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans leading-relaxed selection:bg-indigo-500 selection:text-white">
+
+    <!-- Header Section -->
+    <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 py-14 px-6 relative overflow-hidden">
+        <!-- แสงออร่าด้านหลังรูปโปรไฟล์ -->
+        <div class="absolute -top-20 -left-20 w-72 h-72 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-20 -right-20 w-72 h-72 bg-pink-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 relative z-10">
             <!-- รูปโปรไฟล์ -->
-            <img src="orj.JPG" alt="Profile Picture" class="w-36 h-36 rounded-full border-4 border-indigo-500 object-cover shadow-lg">
+            <div class="relative group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-pink-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                <img src="orj.JPG" alt="Prangvalai Nantasaen" class="relative w-40 h-40 rounded-full object-cover border-2 border-slate-900 shadow-2xl">
+            </div>
             
             <div class="text-center md:text-left">
-                <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Prangvalai Nantasaen</h1>
-                <p class="text-indigo-400 font-medium text-lg mt-1">IT infrastructure</p>
-                <p class="text-slate-300 text-sm mt-3 max-w-xl">
-                    An IT Service Desk Professional with 5 years of experience. 
-                    Strong communication skills and meticulous attention to detail consistently yield superior results.
+                <!-- ชื่อแบบข้อความขยับได้ + อนิเมชั่นพิมพ์ดีด -->
+                <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight glow-hover mb-2">
+                    <span id="typed-name" class="animated-gradient-text"></span>
+                </h1>
+
+                <!-- ตำแหน่งงาน -->
+                <p class="text-indigo-400 font-semibold text-lg md:text-xl tracking-wide flex items-center justify-center md:justify-start gap-2">
+                    <i class="fas fa-server text-sm"></i> IT INFRASTRUCTURE
                 </p>
 
-                <!-- Contact Info Links -->
-                <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-5 text-sm">
-                    <a href="mailto:Somzpvl.123@gmail.com" class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
-                        <i class="fas fa-envelope text-indigo-400"></i> Somzpvl.123@gmail.com
+                <!-- คำอธิบายย่อ -->
+                <p class="text-slate-400 text-sm md:text-base mt-3 max-w-xl">
+                    An IT Service Desk Professional with 5 years of experience. Strong communication skills and meticulous attention to detail consistently yield superior results.
+                </p>
+
+                <!-- ปุ่มการติดต่อ -->
+                <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-6 text-xs md:text-sm">
+                    <a href="mailto:your.email@example.com" class="bg-slate-800/80 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-lg border border-slate-700 transition flex items-center gap-2">
+                        <i class="fas fa-envelope text-indigo-400"></i> Contact Email
                     </a>
-                    <a href="tel:0642983531" class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
-                        <i class="fas fa-phone text-indigo-400"></i> 0642983531
-                    </a>
-                    <a href="https://github.com/yourusername" target="_blank" class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
-                        <i class="fab fa-github text-indigo-400"></i> GitHub
-                    </a>
-                    <a href="https://linkedin.com/in/yourusername" target="_blank" class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
-                        <i class="fab fa-linkedin text-indigo-400"></i> LinkedIn
+                    <a href="https://github.com/somzpvl123-ai" target="_blank" class="bg-slate-800/80 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-lg border border-slate-700 transition flex items-center gap-2">
+                        <i class="fab fa-github text-pink-400"></i> GitHub Profile
                     </a>
                 </div>
             </div>
@@ -44,107 +88,54 @@
     </header>
 
     <!-- Main Content Container -->
-    <main class="max-w-4xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <main class="max-w-4xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
 
-        <!-- Left Column: Skills & Education -->
+        <!-- Sidebar (Left) -->
         <aside class="space-y-8">
-            <!-- ทักษะ (Skills) -->
-            <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/80">
-                <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2 border-b pb-2">
-                    <i class="fas fa-code text-indigo-600"></i> ทักษะความสามารถ
+            <!-- Skills -->
+            <section class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800 shadow-xl">
+                <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2 border-b border-slate-800 pb-3">
+                    <i class="fas fa-code text-indigo-400"></i> Technical Skills
                 </h2>
-                
-                <div class="mb-4">
-                    <h3 class="text-sm font-semibold text-slate-600 mb-2">Technical Skills</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-medium border">HTML / CSS</span>
-                        <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-medium border">JavaScript</span>
-                        <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-medium border">Tailwind CSS</span>
-                        <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-medium border">Git / GitHub</span>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="text-sm font-semibold text-slate-600 mb-2">Soft Skills</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium border border-indigo-100">Communication</span>
-                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium border border-indigo-100">Problem Solving</span>
-                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium border border-indigo-100">Teamwork</span>
-                    </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-indigo-950/80 text-indigo-300 border border-indigo-800/50 px-3 py-1 rounded-full text-xs font-medium">IT Infrastructure</span>
+                    <span class="bg-indigo-950/80 text-indigo-300 border border-indigo-800/50 px-3 py-1 rounded-full text-xs font-medium">Service Desk Support</span>
+                    <span class="bg-indigo-950/80 text-indigo-300 border border-indigo-800/50 px-3 py-1 rounded-full text-xs font-medium">Troubleshooting</span>
+                    <span class="bg-indigo-950/80 text-indigo-300 border border-indigo-800/50 px-3 py-1 rounded-full text-xs font-medium">System Admin</span>
+                    <span class="bg-indigo-950/80 text-indigo-300 border border-indigo-800/50 px-3 py-1 rounded-full text-xs font-medium">Network Fundamentals</span>
                 </div>
             </section>
 
-            <!-- ประวัติการศึกษา (Education) -->
-            <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/80">
-                <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2 border-b pb-2">
-                    <i class="fas fa-graduation-cap text-indigo-600"></i> ประวัติการศึกษา
+            <!-- Education -->
+            <section class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800 shadow-xl">
+                <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2 border-b border-slate-800 pb-3">
+                    <i class="fas fa-graduation-cap text-indigo-400"></i> Education
                 </h2>
                 <div>
-                    <h3 class="font-bold text-slate-800">ปริญญาตรี สาขา...</h3>
-                    <p class="text-sm text-indigo-600">ชื่อมหาวิทยาลัย</p>
-                    <p class="text-xs text-slate-500 mt-1">2020 - 2024 | GPA: X.XX</p>
+                    <h3 class="font-semibold text-slate-200">Bachelor's Degree</h3>
+                    <p class="text-xs text-indigo-400 mt-0.5">Computer Information Systems / IT</p>
                 </div>
             </section>
         </aside>
 
-        <!-- Right Column: Experience & Projects -->
+        <!-- Right Content -->
         <div class="md:col-span-2 space-y-8">
-            <!-- ประวัติการทำงาน (Work Experience) -->
-            <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/80">
-                <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2 border-b pb-2">
-                    <i class="fas fa-briefcase text-indigo-600"></i> ประวัติการทำงาน
+            <!-- Work Experience -->
+            <section class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800 shadow-xl">
+                <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2 border-b border-slate-800 pb-3">
+                    <i class="fas fa-briefcase text-indigo-400"></i> Work Experience
                 </h2>
 
-                <div class="relative pl-6 border-l-2 border-slate-200 space-y-6">
-                    <!-- Job Item 1 -->
+                <div class="relative pl-6 border-l-2 border-slate-800 space-y-6">
                     <div class="relative">
-                        <span class="absolute -left-[31px] top-1.5 w-3 h-3 bg-indigo-600 rounded-full border-2 border-white"></span>
-                        <h3 class="font-bold text-slate-800">ชื่อตำแหน่งงาน</h3>
-                        <p class="text-sm text-indigo-600 font-medium">ชื่อบริษัท / องค์กร</p>
-                        <p class="text-xs text-slate-400 mb-2">มกราคม 2023 - ปัจจุบัน</p>
-                        <ul class="list-disc list-inside text-sm text-slate-600 space-y-1">
-                            <li>อธิบายหน้าที่ความรับผิดชอบและผลงานหลัก</li>
-                            <li>พัฒนาและดูแลโปรเจกต์งานสำคัญ</li>
-                            <li>ใช้ทักษะ X, Y, Z ในการแก้ปัญหา</li>
+                        <span class="absolute -left-[31px] top-1.5 w-3 h-3 bg-pink-500 rounded-full border-4 border-slate-950"></span>
+                        <h3 class="font-bold text-slate-100 text-lg">IT Service Desk Professional</h3>
+                        <p class="text-xs text-slate-400 mb-2">5 Years Experience</p>
+                        <ul class="list-disc list-inside text-sm text-slate-300 space-y-1.5">
+                            <li>Provide 1st & 2nd line technical support for enterprise IT infrastructure.</li>
+                            <li>Diagnose and resolve hardware, software, and network issues efficiently.</li>
+                            <li>Maintain high customer satisfaction with strong communication skills and meticulous attention to detail.</li>
                         </ul>
-                    </div>
-
-                    <!-- Job Item 2 -->
-                    <div class="relative">
-                        <span class="absolute -left-[31px] top-1.5 w-3 h-3 bg-slate-400 rounded-full border-2 border-white"></span>
-                        <h3 class="font-bold text-slate-800">ชื่อตำแหน่งงาน (นักศึกษาฝึกงาน)</h3>
-                        <p class="text-sm text-indigo-600 font-medium">ชื่อบริษัท</p>
-                        <p class="text-xs text-slate-400 mb-2">มิถุนายน 2022 - สิงหาคม 2022</p>
-                        <p class="text-sm text-slate-600">
-                            รายละเอียดสั้นๆ เกี่ยวกับสิ่งที่ได้เรียนรู้และรับผิดชอบช่วงฝึกงาน
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ผลงานที่ภาคภูมิใจ (Featured Projects) -->
-            <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/80">
-                <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2 border-b pb-2">
-                    <i class="fas fa-folder-open text-indigo-600"></i> ผลงาน / โปรเจกต์
-                </h2>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <!-- Project Card 1 -->
-                    <div class="border border-slate-200 p-4 rounded-lg hover:border-indigo-400 transition-colors">
-                        <h3 class="font-bold text-slate-800">ชื่อโปรเจกต์ 1</h3>
-                        <p class="text-xs text-slate-500 mt-1 mb-3">คำอธิบายโปรเจกต์สั้นๆ ว่าทำเกี่ยวกับอะไร</p>
-                        <a href="#" target="_blank" class="text-xs text-indigo-600 hover:underline inline-flex items-center gap-1 font-medium">
-                            ดูรายละเอียดโปรเจกต์ <i class="fas fa-external-link-alt text-[10px]"></i>
-                        </a>
-                    </div>
-
-                    <!-- Project Card 2 -->
-                    <div class="border border-slate-200 p-4 rounded-lg hover:border-indigo-400 transition-colors">
-                        <h3 class="font-bold text-slate-800">ชื่อโปรเจกต์ 2</h3>
-                        <p class="text-xs text-slate-500 mt-1 mb-3">คำอธิบายโปรเจกต์สั้นๆ ว่าทำเกี่ยวกับอะไร</p>
-                        <a href="#" target="_blank" class="text-xs text-indigo-600 hover:underline inline-flex items-center gap-1 font-medium">
-                            ดูรายละเอียดโปรเจกต์ <i class="fas fa-external-link-alt text-[10px]"></i>
-                        </a>
                     </div>
                 </div>
             </section>
@@ -152,9 +143,27 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 text-center py-6 text-xs mt-12 border-t border-slate-800">
-        <p>© 2026 Designed & Built with HTML & Tailwind CSS. Hosted on GitHub Pages.</p>
+    <footer class="text-center py-8 text-xs text-slate-500 border-t border-slate-900">
+        <p>© 2026 Prangvalai Nantasaen • Hosted on GitHub Pages</p>
     </footer>
 
+    <!-- Script สำหรับเล่นเอฟเฟกต์ตัวอักษรพิมพ์ดีด -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Typed('#typed-name', {
+                strings: [
+                    'Prangvalai Nantasaen',
+                    'PRANGVALAI NANTASAEN',
+                    'IT Professional'
+                ],
+                typeSpeed: 60,       // ความเร็วตอนพิมพ์ (ms)
+                backSpeed: 40,       // ความเร็วตอนลบ (ms)
+                backDelay: 2500,     // หยุดรอเมื่อพิมพ์เสร็จ (ms)
+                loop: true,          // ให้ทำงานวนลูปเรื่อยๆ
+                showCursor: true,
+                cursorChar: '|'
+            });
+        });
+    </script>
 </body>
 </html>
